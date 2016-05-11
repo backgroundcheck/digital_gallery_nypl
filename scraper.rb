@@ -1,3 +1,4 @@
+require 'scraperwiki'
 # encoding: UTF-8
 require 'nokogiri'
 require 'mechanize'
@@ -83,7 +84,7 @@ def scrape(data,act,url)
   end
 end
 def exists(id)
-  return ScraperWiki.sqliteexecute("select count(*) from swdata where digital_id=?",[id])['data'][0][0] rescue return 0
+  return ScraperWiki.sqliteexecute("select count(*) from data where digital_id=?",[id])['data'][0][0] rescue return 0
 end
 
 def action()
